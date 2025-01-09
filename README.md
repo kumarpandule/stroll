@@ -1,6 +1,6 @@
-# stroll
+# Stroll - First Assignment
 
-A new dating application.
+❤️💑🔥An brand new dating application.
 
 ## Getting Started
 
