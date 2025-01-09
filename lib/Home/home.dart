@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
+            // Main background image which covers the whole screen
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.9,
@@ -27,10 +28,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Main content of the home screen
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                // Header of the scree which is "Stroll Bonfire"
                 Header(),
                 Stack(
                   children: [
@@ -56,6 +60,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      // Bottom content of the home screen
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,6 +83,8 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
+            
+            // Middle content of the home screen
             Positioned(
               top: MediaQuery.of(context).size.height * 0.46,
               left: 16.0,

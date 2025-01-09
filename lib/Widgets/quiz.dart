@@ -12,6 +12,7 @@ class Answer extends StatelessWidget {
       clipBehavior: Clip.none,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.04,
+      margin: EdgeInsets.only(top: 6.0),
       child: Center(
         child: Text(
           "❝ Mine is definitely the place in the morning.❞",
@@ -44,10 +45,23 @@ class _OptionsState extends State<Options> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.height;
+    double childAspectRatio;
+
+    if (screenWidth < 600) {
+      // For small screens
+      childAspectRatio = 3.0;
+    } else if (screenWidth < 1200) {
+      // For medium screens
+      childAspectRatio = 2.5;
+    } else {
+      // For large screens
+      childAspectRatio = 1.5;
+    }
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 2.5,
+        childAspectRatio: childAspectRatio,
         crossAxisSpacing: 8.0,
         mainAxisSpacing: 8.0,
       ),
@@ -75,7 +89,8 @@ class NextQuestion extends StatelessWidget {
     return Container(
       clipBehavior: Clip.none,
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.08,
+      height: MediaQuery.of(context).size.height * 0.06,
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -90,7 +105,7 @@ class NextQuestion extends StatelessWidget {
                 Text(
                   "Pick your option.",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -107,7 +122,7 @@ class NextQuestion extends StatelessWidget {
           ),
           Container(
             clipBehavior: Clip.none,
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(4.0),
             decoration: BoxDecoration(
               border: Border.all(
                 color: CustomColors.active,
@@ -118,11 +133,12 @@ class NextQuestion extends StatelessWidget {
             child: Icon(
               Icons.mic_none_rounded,
               color: CustomColors.active,
+              size: MediaQuery.of(context).size.width * 0.06,
             ),
           ),
           Container(
             clipBehavior: Clip.none,
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(6.0),
             decoration: BoxDecoration(
               color: CustomColors.active,
               shape: BoxShape.circle,
@@ -130,7 +146,7 @@ class NextQuestion extends StatelessWidget {
             child: Icon(
               Icons.arrow_forward_rounded,
               color: Colors.black,
-              size: MediaQuery.of(context).size.width * 0.08,
+              size: MediaQuery.of(context).size.width * 0.06,
             ),
           ),
         ],
